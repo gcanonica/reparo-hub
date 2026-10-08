@@ -1,0 +1,47 @@
+/* ReparoHub brand kit 1.0 · 2026-10-08 · paired with tokens.json */
+@font-face{font-family:Manrope;src:url("assets/fonts/Manrope-Variable.ttf") format("truetype");font-weight:200 800;font-display:swap}
+:root{
+  --rh-color-ink: #18212F;
+  --rh-color-brand: #2563EB;
+  --rh-color-brand-hover: #1D4ED8;
+  --rh-color-teal: #14B8A6;
+  --rh-color-teal-text: #0F766E;
+  --rh-color-canvas: #F8FAFC;
+  --rh-color-surface: #FFFFFF;
+  --rh-color-muted: #F1F5F9;
+  --rh-color-border: #E2E8F0;
+  --rh-color-control-border: #64748B;
+  --rh-color-text-secondary: #526071;
+  --rh-color-dark-canvas: #101827;
+  --rh-color-dark-surface: #18212F;
+  --rh-color-dark-raised: #202B3B;
+  --rh-color-dark-border: #2B384A;
+  --rh-color-dark-text: #F8FAFC;
+  --rh-color-dark-muted: #A8B3C5;
+  --rh-color-dark-link: #93C5FD;
+  --rh-color-success: #15803D;
+  --rh-color-success-soft: #F0FDF4;
+  --rh-color-warning: #B45309;
+  --rh-color-warning-soft: #FFFBEB;
+  --rh-color-danger: #B91C1C;
+  --rh-color-danger-soft: #FEF2F2;
+  --rh-color-info-soft: #EFF6FF;
+  --rh-space-1: 4px;
+  --rh-space-2: 8px;
+  --rh-space-3: 12px;
+  --rh-space-4: 16px;
+  --rh-space-6: 24px;
+  --rh-space-8: 32px;
+  --rh-space-12: 48px;
+  --rh-space-16: 64px;
+  --rh-space-24: 96px;
+  --rh-radius-control: 8px;
+  --rh-radius-card: 12px;
+  --rh-radius-dialog: 16px;
+  --rh-duration-fast: 150ms;
+  --rh-duration-normal: 200ms;
+  --rh-font-family: "Manrope", "Segoe UI", sans-serif;
+  --rh-font-body: 16px;
+  --rh-font-operational: 14px;
+  --rh-shadow-soft: 0 1px 2px rgb(15 23 42 / 8%);
+}

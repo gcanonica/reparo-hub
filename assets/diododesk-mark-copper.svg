@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <title>Diodo Desk</title>
+  <defs>
+    <mask id="drill">
+      <rect width="48" height="48" fill="#fff"/>
+      <circle cx="7" cy="24" r="2" fill="#000"/>
+      <circle cx="41" cy="24" r="2" fill="#000"/>
+    </mask>
+  </defs>
+  <g mask="url(#drill)" fill="none" stroke="#C27C45" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10.5 24H16M33 24H37.5" stroke-width="3"/>
+    <path d="M16 13V35L31 24Z" fill="#C27C45" stroke-width="2"/>
+    <path d="M33 12.5V35.5" stroke-width="3.5"/>
+    <circle cx="7" cy="24" r="3.6" stroke-width="3"/>
+    <circle cx="41" cy="24" r="3.6" stroke-width="3"/>
+  </g>
+</svg>

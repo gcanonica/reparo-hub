@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="system">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReparoHub | Gestão para assistências técnicas</title>
+  <meta name="description" content="Do balcão à entrega, tudo conectado. Conheça o ReparoHub: ordens de serviço, orçamentos, agenda e acompanhamento para assistências técnicas.">
+  <link rel="canonical" href="https://reparohub.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="ReparoHub | Gestão para assistências técnicas">
+  <meta property="og:description" content="Do balcão à entrega, tudo conectado. Ordens de serviço, orçamentos, agenda e acompanhamento para assistências técnicas.">
+  <meta property="og:url" content="https://reparohub.com/">
+  <meta property="og:image" content="https://reparohub.com/assets/videos/reparohub-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#F8FAFC">
+  <link rel="icon" href="assets/reparohub-favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/Manrope-Variable.ttf" as="font" type="font/ttf" crossorigin>
+  <script src="theme.js"></script>
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="themes.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="media.css">
+  <script src="site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="document" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8zm0 0v5h5M9 12h6m-6 4h6"/></symbol>
+    <symbol id="calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18m-13 5h2m4 0h2"/></symbol>
+    <symbol id="message" viewBox="0 0 24 24"><path d="M21 11a8 8 0 0 1-8 8H5l-3 3V11a9 9 0 0 1 19 0ZM7 9h10M7 13h6"/></symbol>
+    <symbol id="grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1 1m12 12 1 1M5 19l1-1M18 6l1-1"/></symbol>
+    <symbol id="moon" viewBox="0 0 24 24"><path d="M20 15A9 9 0 0 1 9 4a9 9 0 1 0 11 11Z"/></symbol>
+    <symbol id="monitor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="13" rx="2"/><path d="M12 16v5m-4 0h8"/></symbol>
+    <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/><rect x="10" y="10" width="4" height="4"/></symbol>
+  </defs></svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="ReparoHub, início"><span class="brand-symbol"><img src="assets/reparohub-symbol-v1.png" alt="" width="44" height="44"></span><span>Reparo<span class="brand-hub">Hub</span></span></a>
+      <nav class="desktop-nav" aria-label="Navegação principal"><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#diodo-desk">Diodo Desk <span class="nav-dot" aria-hidden="true"></span></a></nav>
+      <div class="header-actions">
+        <div class="theme-picker" role="group" aria-label="Tema da página">
+          <button type="button" data-theme-choice="system" aria-label="Tema automático" aria-pressed="true" title="Automático"><svg class="icon"><use href="#monitor"/></svg></button>
+          <button type="button" data-theme-choice="light" aria-label="Tema claro" aria-pressed="false" title="Claro"><svg class="icon"><use href="#sun"/></svg></button>
+          <button type="button" data-theme-choice="dark" aria-label="Tema escuro" aria-pressed="false" title="Escuro"><svg class="icon"><use href="#moon"/></svg></button>
+        </div>
+        <a class="button button-small header-cta" href="#recursos" data-contact-link>Conhecer a proposta <svg class="icon"><use href="#arrow"/></svg></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu"><span></span><span></span></button>
+      </div>
+    </div>
+    <nav class="mobile-nav container" id="mobile-nav" aria-label="Navegação móvel" hidden><a href="#como-funciona">Como funciona</a><a href="#recursos">Recursos</a><a href="#apresentacao">Apresentação</a><a href="#diodo-desk">Diodo Desk</a><a href="#duvidas">Dúvidas</a></nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero container" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> Gestão para assistências técnicas</div>
+        <h1 id="hero-title">Sua assistência,<br>organizada do<br>balcão à <span>entrega.</span></h1>
+        <p class="hero-description">Cada equipamento tem uma história. Conecte ordens de serviço, orçamentos e visitas técnicas em uma rotina que faz sentido para toda a equipe.</p>
+        <div class="hero-actions"><a class="button" href="#apresentacao" data-contact-link>Ver o sistema em ação <svg class="icon"><use href="#arrow"/></svg></a><a class="text-link" href="#recursos">Explorar as telas <span aria-hidden="true">↗</span></a></div>
+        <p class="phase-note"><span class="status-dot"></span> Em preparação para novas assistências.</p>
+      </div>
+      <div class="hero-visual" aria-label="Exemplo ilustrativo do fluxo de uma ordem de serviço">
+        <div class="visual-topline"><span><span class="tiny-square"></span> Uma OS. Todo o caminho.</span><span class="micro-label">01 — 04</span></div>
+        <div class="journey-line" aria-hidden="true"></div>
+        <div class="arrival-card"><span class="icon-box"><svg class="icon"><use href="#document"/></svg></span><div><span class="micro-label">Tudo começa no balcão</span><strong>Equipamento recebido</strong></div><span class="small-check"><svg class="icon"><use href="#check"/></svg></span></div>
+        <div class="service-card">
+          <div class="service-card-top"><span class="os-id">OS #1048 <span>· Exemplo</span></span><span class="badge badge-info">Em reparo</span></div>
+          <div class="equipment"><div class="laptop-icon" aria-hidden="true"><svg width="46" height="42" viewBox="0 0 46 42" fill="none"><rect x="7" y="5" width="32" height="24" rx="2" stroke="currentColor" stroke-width="1.7"/><path d="m7 29-4 5h40l-4-5M18 34h10" stroke="currentColor" stroke-width="1.7"/></svg></div><div><h2>Notebook · revisão geral</h2><p>Relato, diagnóstico e histórico juntos.</p></div></div>
+          <div class="service-progress" aria-label="Entrada concluída, orçamento aprovado, reparo em andamento, entrega pendente"><span class="done">Entrada</span><span class="done">Orçamento</span><span class="current">Reparo</span><span>Entrega</span></div>
+          <div class="service-note"><span class="note-dot"></span><div><strong>Orçamento aprovado</strong><p>Próxima etapa: concluir os testes.</p></div><svg class="icon"><use href="#check"/></svg></div>
+          <div class="service-card-bottom"><span><span class="avatar">EQ</span> Equipe técnica</span><span>Histórico conectado <svg class="icon"><use href="#arrow"/></svg></span></div>
+        </div>
+        <div class="delivery-card"><span class="icon-box teal"><svg class="icon"><use href="#check"/></svg></span><div><strong>Pronto para a próxima etapa.</strong><span>A informação acompanha o serviço.</span></div></div>
+        <p class="visual-caption">Composição ilustrativa · dados fictícios</p>
+      </div>
+      <div class="hero-foot"><span>Do balcão à entrega, tudo conectado.</span><div><span><svg class="icon"><use href="#document"/></svg> Gestão de OS</span><span><svg class="icon"><use href="#calendar"/></svg> Visitas técnicas</span><span><svg class="icon"><use href="#message"/></svg> Cliente informado</span></div></div>
+    </section>
+
+    <section class="flow-section section-space" id="como-funciona" aria-labelledby="flow-title">
+      <div class="container">
+        <div class="section-heading"><div><span class="eyebrow">O fluxo da sua assistência</span><h2 id="flow-title">O serviço anda.<br>A informação acompanha.</h2></div><p>De quem recebe o equipamento a quem faz a entrega. Um caminho claro, com contexto em cada etapa.</p></div>
+        <ol class="flow-grid">
+          <li><div class="flow-step"><span>01</span><svg class="icon"><use href="#arrow"/></svg></div><h3>Registrar</h3><p>Cliente, equipamento e relato juntos na ordem de serviço (OS).</p></li>
+          <li><div class="flow-step"><span>02</span><svg class="icon"><use href="#arrow"/></svg></div><h3>Conferir</h3><p>Checklist de entrada e evidências para começar com o contexto certo.</p></li>
+          <li><div class="flow-step"><span>03</span><svg class="icon"><use href="#arrow"/></svg></div><h3>Acompanhar</h3><p>Orçamento, aprovação e etapas visíveis para continuar o trabalho.</p></li>
+          <li><div class="flow-step"><span>04</span><svg class="icon"><use href="#check"/></svg></div><h3>Entregar</h3><p>Serviço concluído. Histórico disponível para o próximo atendimento.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="resources-section section-space container" id="recursos" aria-labelledby="resources-title">
+      <div class="section-heading"><div><span class="eyebrow">ReparoHub OS</span><h2 id="resources-title">Cada parte da operação.<br>No mesmo lugar.</h2></div><p>Capturas do sistema em funcionamento. Abra cada tela para examinar os detalhes.</p></div>
+      <div class="product-tabs" role="tablist" aria-label="Exemplos dos recursos">
+        <button type="button" role="tab" id="tab-os" aria-selected="true" aria-controls="panel-os" tabindex="0"><svg class="icon"><use href="#document"/></svg> Ordens de serviço</button>
+        <button type="button" role="tab" id="tab-agenda" aria-selected="false" aria-controls="panel-agenda" tabindex="-1"><svg class="icon"><use href="#calendar"/></svg> Agenda e visitas</button>
+        <button type="button" role="tab" id="tab-cliente" aria-selected="false" aria-controls="panel-cliente" tabindex="-1"><svg class="icon"><use href="#message"/></svg> Acompanhamento</button>
+      </div>
+      <div class="product-stage">
+        <section id="panel-os" role="tabpanel" aria-labelledby="tab-os" tabindex="0">
+          <div class="product-story"><span class="micro-label">Do atendimento à entrega</span><h3>O próximo passo<br>fica à vista.</h3><p>Localize cada serviço, acompanhe aprovações e mantenha o histórico perto de quem precisa dele.</p><ul class="check-list"><li>Orçamentos e aprovações</li><li>Checklist de entrada e entrega</li><li>Histórico do equipamento</li></ul></div>
+          <figure class="product-shot"><div class="shot-browser"><div class="shot-browser-bar"><span aria-hidden="true">● ● ●</span><span>ReparoHub / Gestão de OS</span><span>↗</span></div><a class="shot-link shot-light" href="assets/screens/03-admin-dashboard-light-history.png" target="_blank" rel="noopener" aria-label="Abrir captura clara em tamanho real"><img src="assets/screens/03-admin-dashboard-light-history.png" alt="Painel de gestão com visitas, etapas da oficina e histórico de ordens de serviço" loading="lazy" decoding="async" width="1920" height="1415"></a><a class="shot-link shot-dark" href="assets/screens/02-admin-dashboard-dark.png" target="_blank" rel="noopener" aria-label="Abrir captura escura em tamanho real"><img src="assets/screens/02-admin-dashboard-dark.png" alt="Painel de gestão escuro com visitas e etapas da oficina" loading="lazy" decoding="async" width="1920" height="1200"></a></div><figcaption>Tela real do sistema · dados de teste <span>Toque para ampliar ↗</span></figcaption></figure>
+        </section>
+        <section id="panel-agenda" role="tabpanel" aria-labelledby="tab-agenda" tabindex="0" hidden>
+          <div class="product-story"><span class="micro-label">Dentro e fora da assistência</span><h3>Uma agenda que<br>acompanha a equipe.</h3><p>Organize visitas técnicas e compromissos, com o contexto do serviço ao lado do horário.</p><ul class="check-list"><li>Visitas técnicas agendadas</li><li>Compromissos da operação</li><li>Contexto para a equipe</li></ul></div>
+          <figure class="product-shot"><div class="shot-browser"><div class="shot-browser-bar"><span aria-hidden="true">● ● ●</span><span>ReparoHub / Agenda de visitas</span><span>↗</span></div><a class="shot-link" href="assets/screens/09-scheduling.png" target="_blank" rel="noopener" aria-label="Abrir captura da agenda em tamanho real"><img src="assets/screens/09-scheduling.png" alt="Agenda de visitas com horários disponíveis, programação do dia e expediente da equipe" loading="lazy" decoding="async" width="1920" height="1477"></a></div><figcaption>Tela real do sistema · dados de teste <span>Toque para ampliar ↗</span></figcaption></figure>
+        </section>
+        <section id="panel-cliente" role="tabpanel" aria-labelledby="tab-cliente" tabindex="0" hidden>
+          <div class="product-story"><span class="micro-label">Informação que chega ao cliente</span><h3>Menos dúvidas.<br>Mais contexto.</h3><p>A proposta conecta o andamento do serviço ao acompanhamento do cliente, com a identidade da assistência.</p><ul class="check-list"><li>Status do equipamento</li><li>Orçamentos para aprovação</li><li>Próxima etapa do atendimento</li></ul></div>
+          <figure class="product-shot"><div class="shot-browser"><div class="shot-browser-bar"><span aria-hidden="true">● ● ●</span><span>ReparoHub / Área do cliente</span><span>↗</span></div><a class="shot-link shot-light" href="assets/screens/15-customer-dashboard-light.png" target="_blank" rel="noopener" aria-label="Abrir captura clara em tamanho real"><img src="assets/screens/15-customer-dashboard-light.png" alt="Área do cliente com solicitações e andamento dos reparos" loading="lazy" decoding="async" width="1920" height="1709"></a><a class="shot-link shot-dark" href="assets/screens/16-customer-dashboard-dark.png" target="_blank" rel="noopener" aria-label="Abrir captura escura em tamanho real"><img src="assets/screens/16-customer-dashboard-dark.png" alt="Área do cliente em tema escuro com histórico e status dos reparos" loading="lazy" decoding="async" width="1920" height="1709"></a></div><figcaption>Tela real do sistema · dados de teste <span>Toque para ampliar ↗</span></figcaption></figure>
+        </section>
+      </div>
+      <p class="stage-caption"><span class="status-dot"></span> Capturas reais da versão atual, com dados de teste. A versão para novas assistências pode mudar.</p>
+      <div class="resource-notes"><div><svg class="icon"><use href="#grid"/></svg><h3>Visão da operação</h3><p>Indicadores para entender o que precisa de atenção.</p></div><div><svg class="icon"><use href="#document"/></svg><h3>Registro com contexto</h3><p>Entrada, evidências e entrega conectadas à OS.</p></div><div><svg class="icon"><use href="#message"/></svg><h3>Equipe e cliente</h3><p>Informação organizada para cada parte do atendimento.</p></div></div>
+    </section>
+
+    <section class="presentation-section container" id="apresentacao" aria-labelledby="presentation-title">
+      <div class="video-heading"><div><span class="eyebrow">Por dentro do ReparoHub</span><h2 id="presentation-title">Veja a operação<br>ganhar movimento.</h2></div><p>Um tour pelas telas que conectam gestão, visitas técnicas e acompanhamento do cliente.</p></div>
+      <figure class="feature-film"><video controls playsinline preload="none" poster="assets/videos/reparohub-poster.jpg" aria-label="Vídeo de apresentação do ReparoHub, 36 segundos"><source src="assets/videos/reparohub-apresentacao.mp4" type="video/mp4">Seu navegador não suporta vídeo. <a href="assets/videos/reparohub-apresentacao.mp4">Abrir apresentação do ReparoHub</a>.</video><figcaption><span>01 / ReparoHub em ação</span><span>36 segundos · telas reais com dados de teste</span></figcaption></figure>
+    </section>
+
+    <section class="diodo-section section-space container" id="diodo-desk" aria-labelledby="diodo-title">
+      <div class="diodo-heading"><span class="eyebrow">O próximo capítulo: a bancada</span><span class="badge development-badge">Em desenvolvimento</span></div>
+      <div class="diodo-grid"><div class="diodo-copy"><div class="diodo-brand"><img src="assets/diododesk-mark-copper.svg" alt="" width="66" height="44"><div>Diodo Desk<small>Um produto ReparoHub</small></div></div><h2 id="diodo-title">A placa tem uma história.<br>Sua bancada também.</h2><p>Conheça o futuro módulo de apoio ao reparo em nível de placa. Boardview, medições e histórico técnico, com IA para ajudar a organizar evidências e sugerir o próximo teste.</p><p class="diodo-principle">A IA sugere. O técnico decide.</p><a class="text-link" href="#duvidas">Entenda o que está a caminho <svg class="icon"><use href="#arrow"/></svg></a></div>
+        <figure class="diodo-real-shot"><a href="assets/screens/03-boardview-no-caso.png" target="_blank" rel="noopener" aria-label="Abrir captura do Diodo Desk em tamanho real"><img src="assets/screens/03-boardview-no-caso.png" alt="Caso técnico no Diodo Desk: boardview ao centro, medições abaixo e assistente de IA à direita" loading="lazy" decoding="async" width="1584" height="935"></a><figcaption><span>Captura real da bancada · caso técnico</span><a href="assets/screens/05-boardview-net-5VALW-destacada.png" target="_blank" rel="noopener">Ver rede destacada ↗</a></figcaption></figure>
+      </div>
+      <figure class="module-film"><video controls playsinline preload="none" poster="assets/videos/diododesk-poster.jpg" aria-label="Vídeo de apresentação do Diodo Desk, 38 segundos"><source src="assets/videos/diododesk-apresentacao.mp4" type="video/mp4">Seu navegador não suporta vídeo. <a href="assets/videos/diododesk-apresentacao.mp4">Abrir apresentação do Diodo Desk</a>.</video><figcaption><span>02 / Diodo Desk em desenvolvimento</span><span>38 segundos · capturas da ferramenta</span></figcaption></figure>
+      <div class="diodo-features"><div><span>01</span><h3>Histórico por placa</h3><p>Medições e evidências que permanecem com o caso técnico.</p></div><div><span>02</span><h3>Boardview e esquema</h3><p>Documentação ao lado das informações coletadas na bancada.</p></div><div><span>03</span><h3>IA com contexto</h3><p>Apoio ao diagnóstico a partir das evidências disponíveis.</p></div></div>
+      <p class="diodo-footnote">Em desenvolvimento. A integração entre os produtos e a disponibilidade comercial serão detalhadas nas próximas etapas.</p>
+    </section>
+
+    <section class="connection-section section-space" id="conexao" aria-labelledby="connection-title"><div class="container"><div class="connection-heading"><span class="eyebrow">Uma empresa, dois produtos</span><h2 id="connection-title">Do balcão à bancada,<br>o mesmo número da OS.</h2><p>O ReparoHub organiza o atendimento. O Diodo Desk leva o caso para a bancada. O vínculo inicial é o número da ordem de serviço; a integração de dados ainda está em desenvolvimento.</p></div><figure class="connection-film"><video controls playsinline preload="none" poster="assets/videos/conexao-poster.jpg" aria-label="Vídeo sobre a relação entre ReparoHub e Diodo Desk, 30 segundos"><source src="assets/videos/reparohub-diododesk-como-se-ligam.mp4" type="video/mp4">Seu navegador não suporta vídeo. <a href="assets/videos/reparohub-diododesk-como-se-ligam.mp4">Abrir vídeo da conexão entre os produtos</a>.</video><figcaption><span>03 / Como os produtos se ligam</span><span>30 segundos · integração em evolução</span></figcaption></figure></div></section>
+
+    <section class="origin-section"><div class="container origin-inner"><span class="eyebrow">Feito a partir da rotina</span><h2>Começa em uma assistência.<br>É pensado para muitas.</h2><div><p>O ReparoHub nasce do trabalho desenvolvido para a operação da GC Tech. A próxima etapa é levar essa experiência para outras assistências técnicas.</p><span>Experiência de balcão. Visão de produto.</span></div></div></section>
+
+    <section class="faq-section section-space container" id="duvidas" aria-labelledby="faq-title"><div><span class="eyebrow">Antes de seguir</span><h2 id="faq-title">Vamos esclarecer<br>algumas coisas.</h2><p>O que já está definido e o que vem pela frente.</p></div><div class="faq-list">
+      <details><summary>Já posso usar na minha assistência?<svg class="icon"><use href="#plus"/></svg></summary><p>Estamos preparando o ReparoHub para novas assistências. A abertura de acesso será anunciada quando a versão e as condições de uso estiverem definidas.</p></details>
+      <details><summary>Para quem é o ReparoHub?<svg class="icon"><use href="#plus"/></svg></summary><p>Para proprietários e equipes de assistências técnicas que precisam registrar e acompanhar o ciclo das ordens de serviço, dos primeiros dados do equipamento à entrega.</p></details>
+      <details><summary>O Diodo Desk já faz parte do sistema?<svg class="icon"><use href="#plus"/></svg></summary><p>O Diodo Desk está em desenvolvimento como uma ferramenta complementar para a bancada. A ligação inicial é pelo número da OS; a integração de dados e as condições comerciais ainda serão definidas.</p></details>
+      <details><summary>Quais são os planos e preços?<svg class="icon"><use href="#plus"/></svg></summary><p>A oferta comercial está em definição. Valores, planos e condições de contratação serão apresentados em uma próxima etapa.</p></details>
+      <details><summary>O cliente consegue acompanhar o serviço?<svg class="icon"><use href="#plus"/></svg></summary><p>A base atual contém uma área de acompanhamento. A disponibilidade e os recursos da versão para novas assistências serão informados na apresentação do produto.</p></details>
+      <details><summary>Posso migrar de outro sistema?<svg class="icon"><use href="#plus"/></svg></summary><p>O processo de migração ainda será definido. Nesta etapa não há promessa de importação automática de dados de outros sistemas.</p></details>
+    </div></section>
+
+    <section class="closing-section container" id="novidades"><div class="closing-panel"><div><span class="eyebrow">O próximo passo da sua assistência</span><h2>Mais clareza na rotina.<br>Do balcão à bancada.</h2><p>Estamos preparando o ReparoHub para novas assistências.<br>Acompanhe aqui os próximos passos do produto.</p></div><a class="button" href="#recursos" data-contact-link>Explorar o ReparoHub <svg class="icon"><use href="#arrow"/></svg></a></div></section>
+  </main>
+  <footer class="container site-footer"><div><a class="brand" href="#inicio" aria-label="ReparoHub, voltar ao início"><span class="brand-symbol"><img src="assets/reparohub-symbol-v1.png" alt="" width="44" height="44" loading="lazy"></span><span>Reparo<span class="brand-hub">Hub</span></span></a><p>Do balcão à entrega, tudo conectado.</p></div><nav aria-label="Navegação do rodapé"><a href="#como-funciona">Como funciona</a><a href="#diodo-desk">Diodo Desk</a><a href="#duvidas">Dúvidas</a></nav><span class="footer-note">ReparoHub · 2026<br>Produto em preparação.</span></footer>
+</body>
+</html>

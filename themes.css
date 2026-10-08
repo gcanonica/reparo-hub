@@ -1,0 +1,116 @@
+/* ReparoHub · temas claro/escuro · usar depois de tokens.css.
+   Defina data-theme="light", "dark" ou "system" no elemento html. */
+:root {
+  color-scheme: light;
+  --rh-theme-bg: #F8FAFC;
+  --rh-theme-surface: #FFFFFF;
+  --rh-theme-surface-muted: #F1F5F9;
+  --rh-theme-surface-raised: #FFFFFF;
+  --rh-theme-text: #18212F;
+  --rh-theme-text-secondary: #526071;
+  --rh-theme-border: #E2E8F0;
+  --rh-theme-control-border: #64748B;
+  --rh-theme-brand: #2563EB;
+  --rh-theme-brand-hover: #1D4ED8;
+  --rh-theme-brand-text: #FFFFFF;
+  --rh-theme-link: #1D4ED8;
+  --rh-theme-focus: #2563EB;
+  --rh-theme-teal: #0F766E;
+  --rh-theme-info-bg: #EFF6FF;
+  --rh-theme-info-text: #1D4ED8;
+  --rh-theme-warning-bg: #FFFBEB;
+  --rh-theme-warning-text: #92400E;
+  --rh-theme-success-bg: #F0FDF4;
+  --rh-theme-success-text: #166534;
+  --rh-theme-danger-bg: #FEF2F2;
+  --rh-theme-danger-text: #991B1B;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --rh-theme-bg: #101827;
+  --rh-theme-surface: #18212F;
+  --rh-theme-surface-muted: #202B3B;
+  --rh-theme-surface-raised: #202B3B;
+  --rh-theme-text: #F8FAFC;
+  --rh-theme-text-secondary: #A8B3C5;
+  --rh-theme-border: #354357;
+  --rh-theme-control-border: #8492A6;
+  --rh-theme-brand: #2563EB;
+  --rh-theme-brand-hover: #1D4ED8;
+  --rh-theme-brand-text: #FFFFFF;
+  --rh-theme-link: #93C5FD;
+  --rh-theme-focus: #93C5FD;
+  --rh-theme-teal: #5EEAD4;
+  --rh-theme-info-bg: #172D4A;
+  --rh-theme-info-text: #93C5FD;
+  --rh-theme-warning-bg: #322815;
+  --rh-theme-warning-text: #FCD34D;
+  --rh-theme-success-bg: #153126;
+  --rh-theme-success-text: #86EFAC;
+  --rh-theme-danger-bg: #351F24;
+  --rh-theme-danger-text: #FDA4AF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]),
+  :root[data-theme="system"] {
+    color-scheme: dark;
+    --rh-theme-bg: #101827;
+    --rh-theme-surface: #18212F;
+    --rh-theme-surface-muted: #202B3B;
+    --rh-theme-surface-raised: #202B3B;
+    --rh-theme-text: #F8FAFC;
+    --rh-theme-text-secondary: #A8B3C5;
+    --rh-theme-border: #354357;
+    --rh-theme-control-border: #8492A6;
+    --rh-theme-brand: #2563EB;
+    --rh-theme-brand-hover: #1D4ED8;
+    --rh-theme-brand-text: #FFFFFF;
+    --rh-theme-link: #93C5FD;
+    --rh-theme-focus: #93C5FD;
+    --rh-theme-teal: #5EEAD4;
+    --rh-theme-info-bg: #172D4A;
+    --rh-theme-info-text: #93C5FD;
+    --rh-theme-warning-bg: #322815;
+    --rh-theme-warning-text: #FCD34D;
+    --rh-theme-success-bg: #153126;
+    --rh-theme-success-text: #86EFAC;
+    --rh-theme-danger-bg: #351F24;
+    --rh-theme-danger-text: #FDA4AF;
+  }
+}
+
+/* Consuma os tokens pela interface; evite fixar cores diretamente nos componentes. */
+.rh-themed {
+  color: var(--rh-theme-text);
+  background: var(--rh-theme-bg);
+}
+
+.rh-themed[data-theme="dark"] { color-scheme: dark; }
+
+@media (prefers-color-scheme: dark) {
+  .rh-themed:not([data-theme]),
+  .rh-themed[data-theme="system"] { color-scheme: dark; }
+}
+
+.rh-themed a { color: var(--rh-theme-link); }
+.rh-themed .rh-surface { background: var(--rh-theme-surface); }
+.rh-themed .rh-surface-muted { background: var(--rh-theme-surface-muted); }
+.rh-themed .rh-text-secondary { color: var(--rh-theme-text-secondary); }
+.rh-themed .rh-border { border-color: var(--rh-theme-border); }
+.rh-themed .rh-control { border: 1px solid var(--rh-theme-control-border); background: var(--rh-theme-surface); color: var(--rh-theme-text); }
+.rh-themed .rh-control:focus-visible { outline: 3px solid var(--rh-theme-focus); outline-offset: 3px; }
+.rh-themed .rh-button-primary { background: var(--rh-theme-brand); color: var(--rh-theme-brand-text); }
+.rh-themed .rh-button-primary:hover { background: var(--rh-theme-brand-hover); }
+.rh-themed .rh-status-info { color: var(--rh-theme-info-text); background: var(--rh-theme-info-bg); }
+.rh-themed .rh-status-warning { color: var(--rh-theme-warning-text); background: var(--rh-theme-warning-bg); }
+.rh-themed .rh-status-success { color: var(--rh-theme-success-text); background: var(--rh-theme-success-bg); }
+.rh-themed .rh-status-danger { color: var(--rh-theme-danger-text); background: var(--rh-theme-danger-bg); }
+
+/* O símbolo colorido tem um elo ink: em fundo escuro, use-o numa base clara. */
+.rh-themed .rh-brand-symbol-on-dark { display: inline-flex; padding: 8px; border-radius: 12px; background: #FFFFFF; }
