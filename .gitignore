@@ -1,3 +1,6 @@
 output/
 .playwright-cli/
 .ai-memory.toml
+
+# graft's local graph cache — regenerable, not committed (run `graft build`).
+/graft/
