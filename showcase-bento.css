@@ -7,9 +7,10 @@
 .sx-blue { --sx: #2563eb; }
 .sx-teal { --sx: #14b8a6; }
 .sx-cyan { --sx: #06b6d4; }
+.sx-sky { --sx: #38bdf8; }
+.sx-ice { --sx: #f1f5f9; }
 .sx-emerald { --sx: #10b981; }
 .sx-amber { --sx: #f59e0b; }
-.sx-indigo { --sx: #6366f1; }
 
 .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
 .span-2 { grid-column: span 2; }

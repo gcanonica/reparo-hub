@@ -34,18 +34,21 @@
   --muted: #94a3b8;
   --dim: #64748b;
 
-  /* Cores Oficiais ReparoHub */
+  /* Cores Oficiais ReparoHub (Sem roxo — base em Azul, Cyan, Teal e Branco Ice) */
   --blue: #2563eb;
   --blue-light: #3b82f6;
   --teal: #14b8a6;
   --cyan: #06b6d4;
+  --sky: #38bdf8;
   --green: #10b981;
   --amber: #f59e0b;
+  --white: #ffffff;
+  --ice: #e2e8f0;
   --ink: #18212f;
 
-  /* Gradientes de Assinatura */
-  --spec: linear-gradient(90deg, #2563eb, #06b6d4 35%, #14b8a6 65%, #10b981);
-  --spec-loop: linear-gradient(90deg, #2563eb, #06b6d4, #14b8a6, #10b981, #2563eb);
+  /* Gradientes de Assinatura (Azul -> Cyan -> Teal -> Branco Cristalino) */
+  --spec: linear-gradient(90deg, #2563eb, #06b6d4 35%, #14b8a6 65%, #ffffff);
+  --spec-loop: linear-gradient(90deg, #2563eb, #06b6d4, #14b8a6, #ffffff, #14b8a6, #06b6d4, #2563eb);
 
   --ui: "Geist", system-ui, -apple-system, sans-serif;
   --mono: "Geist Mono", ui-monospace, Consolas, monospace;
@@ -85,9 +88,9 @@ svg.i { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-widt
 .sky-base {
   position: absolute; inset: 0;
   background:
-    radial-gradient(60% 45% at 20% 8%, rgba(37, 99, 235, 0.28), transparent 70%),
-    radial-gradient(50% 40% at 80% 4%, rgba(20, 184, 166, 0.22), transparent 70%),
-    radial-gradient(70% 50% at 50% 115%, rgba(6, 182, 212, 0.18), transparent 70%),
+    radial-gradient(60% 45% at 20% 8%, rgba(37, 99, 235, 0.24), transparent 70%),
+    radial-gradient(50% 40% at 80% 4%, rgba(20, 184, 166, 0.20), transparent 70%),
+    radial-gradient(70% 50% at 50% 115%, rgba(255, 255, 255, 0.08), transparent 70%),
     var(--bg);
 }
 .sky canvas {
@@ -179,10 +182,10 @@ svg.i { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-widt
 
 .wordmark {
   margin-top: 26px; font-weight: 600; font-size: clamp(64px, 14vw, 160px); line-height: .92; letter-spacing: -.06em;
-  background: linear-gradient(100deg, #fff 0%, #fff 36%, #2563eb 42%, #06b6d4 48%, #14b8a6 54%, #10b981 60%, #fff 66%, #fff 100%);
+  background: linear-gradient(100deg, #fff 0%, #fff 38%, #2563eb 44%, #38bdf8 49%, #14b8a6 54%, #fff 60%, #fff 100%);
   background-size: 300% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; color: transparent;
   animation: sheen 9s var(--ease) infinite; padding: 0 .04em .08em;
-  filter: drop-shadow(0 10px 60px rgba(37,99,235,.25));
+  filter: drop-shadow(0 10px 60px rgba(37,99,235,.22));
 }
 .tagline {
   margin-top: 18px; font-weight: 300; font-size: clamp(24px, 3.4vw, 38px); line-height: 1.2; letter-spacing: -.03em; max-width: 780px;

@@ -8,26 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 
-  /* ================= the living sky (aurora azul/teal) ================= */
+  /* ================= the living sky (aurora azul glacial, cyan, teal e branco - zero roxo) ================= */
   const cv = $('#sky');
   const ctx = cv && cv.getContext('2d', { alpha: false });
   if (ctx) {
     let W = 0, H = 0, raf = 0, last = 0, pending = false, t0 = performance.now();
     let scrollP = 0, depth = 0, px = .5, py = .3, tpx = .5, tpy = .3;
 
-    // Matizes dos blobs sintonizados com ReparoHub:
-    // 217 = Azul Real, 175 = Teal, 192 = Cyan, 150 = Esmeralda, 235 = Índigo
+    // Matizes estritamente limitados entre 165° (Teal) e 215° (Azul Oceano), mais feixe de luz branca
     const blobs = [
-      { h: 217, x: .18, y: .12, r: .55, sx: .11, sy: .07, ph: 0 },
-      { h: 175, x: .55, y: .05, r: .60, sx: .07, sy: .05, ph: 1.7 },
-      { h: 192, x: .86, y: .18, r: .50, sx: .09, sy: .08, ph: 3.1 },
-      { h: 150, x: .30, y: .95, r: .48, sx: .08, sy: .05, ph: 4.4 },
-      { h: 235, x: .78, y: .90, r: .45, sx: .10, sy: .06, ph: 5.2 },
+      { h: 212, x: .18, y: .12, r: .55, sx: .11, sy: .07, ph: 0, white: false },
+      { h: 175, x: .55, y: .05, r: .60, sx: .07, sy: .05, ph: 1.7, white: false },
+      { h: 195, x: .86, y: .18, r: .50, sx: .09, sy: .08, ph: 3.1, white: false },
+      { h: 165, x: .30, y: .95, r: .48, sx: .08, sy: .05, ph: 4.4, white: false },
+      { h: 205, x: .75, y: .85, r: .52, sx: .09, sy: .06, ph: 5.2, white: true }, // Foco de luz branca/gelo
     ];
     const curtains = [
-      { h: 215, base: .10, amp: .07, len: .42, f: .021, sp: .16, a: .50 },
-      { h: 175, base: .18, amp: .06, len: .36, f: .028, sp: -.12, a: .45 },
-      { h: 195, base: .05, amp: .05, len: .30, f: .017, sp: .09, a: .35 },
+      { h: 208, base: .10, amp: .07, len: .42, f: .021, sp: .16, a: .48 },
+      { h: 175, base: .18, amp: .06, len: .36, f: .028, sp: -.12, a: .42 },
+      { h: 192, base: .05, amp: .05, len: .30, f: .017, sp: .09, a: .38 },
     ];
 
     const resize = () => {
@@ -41,27 +40,35 @@ document.addEventListener('DOMContentLoaded', () => {
     function draw(now) {
       const t = (now - t0) / 1000;
       const dim = Math.max(1 - depth * .58, Math.min(1, Math.max(0, (scrollP - .86) / .14)) * .85);
-      const hueShift = scrollP * 80 + Math.sin(t * .05) * 15;
+      // Oscilação suave estritamente entre azul e ciano/teal (nunca avança para roxo/magenta)
+      const hueShift = Math.sin(scrollP * Math.PI) * -15 + Math.sin(t * .06) * 10;
       ctx.globalCompositeOperation = 'source-over';
       ctx.fillStyle = '#040406';
       ctx.fillRect(0, 0, W, H);
       ctx.globalCompositeOperation = 'lighter';
 
-      // Blobs de cor
+      // Blobs de cor & luz branca
       for (const b of blobs) {
         const x = (b.x + Math.sin(t * b.sx + b.ph) * .16) * W;
         const y = (b.y + Math.cos(t * b.sy + b.ph) * .10) * H;
         const r = b.r * Math.max(W, H) * (1 + Math.sin(t * .2 + b.ph) * .08);
         const g = ctx.createRadialGradient(x, y, 0, x, y, r);
-        const h = b.h + hueShift;
-        g.addColorStop(0, `hsla(${h}, 90%, 55%, ${.22 * dim})`);
-        g.addColorStop(.5, `hsla(${h + 15}, 85%, 48%, ${.08 * dim})`);
-        g.addColorStop(1, 'hsla(0,0%,0%,0)');
+        const h = Math.min(215, Math.max(165, b.h + hueShift));
+
+        if (b.white) {
+          g.addColorStop(0, `rgba(255, 255, 255, ${.16 * dim})`);
+          g.addColorStop(.4, `hsla(195, 90%, 65%, ${.07 * dim})`);
+          g.addColorStop(1, 'hsla(0,0%,0%,0)');
+        } else {
+          g.addColorStop(0, `hsla(${h}, 90%, 52%, ${.20 * dim})`);
+          g.addColorStop(.5, `hsla(${Math.max(165, h - 15)}, 85%, 48%, ${.07 * dim})`);
+          g.addColorStop(1, 'hsla(0,0%,0%,0)');
+        }
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, W, H);
       }
 
-      // Cortinas de aurora
+      // Cortinas de aurora nos tons azul/teal/branco
       const step = W < 150 ? 2 : 3;
       for (const c of curtains) {
         for (let x = 0; x <= W; x += step) {
@@ -71,22 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
           const ray = .55 + .45 * Math.sin(x * .11 + t * 1.1) * Math.sin(x * .045 - t * .6);
           const a = c.a * .62 * ray * dim * (.4 + .6 * Math.sin(Math.PI * Math.min(1, Math.max(0, k))));
           if (a <= .01) continue;
-          const h = c.h + hueShift + k * 50 + Math.sin(t * .3 + k * 4) * 15;
+          const h = Math.min(214, Math.max(168, c.h + hueShift + (k - 0.5) * 25));
           const top = edge, bot = edge + len;
           const g = ctx.createLinearGradient(0, top - len * .4, 0, bot);
           g.addColorStop(0, `hsla(${h},95%,55%,0)`);
-          g.addColorStop(.7, `hsla(${h},95%,58%,${a * .35})`);
-          g.addColorStop(.92, `hsla(${h + 20},95%,64%,${a})`);
-          g.addColorStop(1, `hsla(${h + 20},95%,55%,0)`);
+          g.addColorStop(.65, `hsla(${h},95%,58%,${a * .30})`);
+          g.addColorStop(.88, `rgba(255, 255, 255, ${a * .45})`);
+          g.addColorStop(1, `hsla(${h},95%,55%,0)`);
           ctx.fillStyle = g;
           ctx.fillRect(x - step / 2, top - len * .4, step * 2, len * 1.4);
         }
       }
 
-      // Luz sutil sob o cursor
+      // Luz branca cristalina sob o cursor
       px += (tpx - px) * .04; py += (tpy - py) * .04;
       const g = ctx.createRadialGradient(px * W, py * H, 0, px * W, py * H, W * .30);
-      g.addColorStop(0, `hsla(${200 + hueShift}, 95%, 60%, .14)`);
+      g.addColorStop(0, `rgba(255, 255, 255, ${.14 * dim})`);
+      g.addColorStop(.4, `hsla(195, 90%, 65%, ${.07 * dim})`);
       g.addColorStop(1, 'hsla(0,0%,0%,0)');
       ctx.fillStyle = g;
       ctx.fillRect(0, 0, W, H);
