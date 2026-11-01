@@ -69,3 +69,60 @@ tabs.forEach((tab, index) => {
     tabs[next].focus();
   });
 });
+
+const appUrl = document.querySelector('meta[name="reparohub-app-url"]')?.content || 'https://app.reparohub.com';
+const privacyPolicyUrl = new URL('/privacidade', appUrl).href;
+document.querySelectorAll('[data-reparohub-privacy-link]').forEach(link => { link.href = privacyPolicyUrl; });
+
+const waitlistForm = document.querySelector('#waitlist-form');
+if (waitlistForm) {
+  const endpoint = document.querySelector('meta[name="reparohub-waitlist-endpoint"]').content;
+  const status = document.querySelector('#waitlist-status');
+  const submit = waitlistForm.querySelector('button[type="submit"]');
+  const utmFields = [['utm_source', 'source'], ['utm_medium', 'medium'], ['utm_campaign', 'campaign'], ['utm_term', 'term'], ['utm_content', 'content']];
+
+  waitlistForm.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!waitlistForm.reportValidity()) return;
+    status.textContent = '';
+    submit.disabled = true;
+    submit.textContent = 'Enviando…';
+
+    const values = new FormData(waitlistForm);
+    const search = new URLSearchParams(location.search);
+    const utm = Object.fromEntries(utmFields
+      .map(([parameter, field]) => [field, search.get(parameter)?.trim()])
+      .filter(([, value]) => value));
+    const payload = {
+      name: values.get('name'),
+      workshop: values.get('workshop'),
+      city: values.get('city'),
+      state: values.get('state'),
+      whatsapp: values.get('whatsapp'),
+      email: values.get('email'),
+      monthlyServiceOrderVolume: values.get('monthlyServiceOrderVolume'),
+      source: 'landing',
+      ...(Object.keys(utm).length ? { utm } : {}),
+      privacyConsent: values.get('privacyConsent') === 'on',
+      website: values.get('website'),
+    };
+
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error('Waitlist request failed.');
+      waitlistForm.reset();
+      status.className = 'waitlist-status is-success';
+      status.textContent = 'Recebemos seus dados. Obrigado!';
+    } catch {
+      status.className = 'waitlist-status is-error';
+      status.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
+    } finally {
+      submit.disabled = false;
+      submit.innerHTML = 'Entrar na lista de espera <svg class="icon"><use href="#arrow"/></svg>';
+    }
+  });
+}
