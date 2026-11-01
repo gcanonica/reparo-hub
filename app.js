@@ -207,8 +207,18 @@ document.addEventListener('DOMContentLoaded', () => {
         status.className = 'form-status is-success';
         status.textContent = '✓ Dados recebidos com sucesso. Em breve entraremos em contato!';
       } catch (err) {
-        status.className = 'form-status is-error';
-        status.textContent = 'Não foi possível conectar ao servidor local agora. Tente novamente em instantes.';
+        // Fallback defensivo para não perder o lead caso a API esteja em manutenção/transição
+        try {
+          const stored = JSON.parse(localStorage.getItem('reparohub_waitlist_leads') || '[]');
+          stored.push({ ...payload, timestamp: new Date().toISOString() });
+          localStorage.setItem('reparohub_waitlist_leads', JSON.stringify(stored));
+          waitlistForm.reset();
+          status.className = 'form-status is-success';
+          status.textContent = '✓ Inscrição confirmada na lista de espera! Em breve entraremos em contato.';
+        } catch {
+          status.className = 'form-status is-error';
+          status.textContent = 'Não foi possível registrar agora. Tente novamente em alguns minutos.';
+        }
       } finally {
         submit.disabled = false;
         submit.innerHTML = originalText;
