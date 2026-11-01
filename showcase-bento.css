@@ -1,0 +1,109 @@
+/* ReparoHub — Bento Grid & Micro-Cenas de Bancada (Class prefix sx-)
+   Dark glass, key edges superiores e um acento específico por card. */
+
+.sx-defs { position: absolute; width: 0; height: 0; overflow: hidden; pointer-events: none; }
+
+.sx-card { --sx: #2563eb; }
+.sx-blue { --sx: #2563eb; }
+.sx-teal { --sx: #14b8a6; }
+.sx-cyan { --sx: #06b6d4; }
+.sx-emerald { --sx: #10b981; }
+.sx-amber { --sx: #f59e0b; }
+.sx-indigo { --sx: #6366f1; }
+
+.bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.span-2 { grid-column: span 2; }
+.span-3 { grid-column: span 3; }
+.span-4 { grid-column: span 4; }
+
+/* ---------- Card de Vidro com Key Edge Superior ---------- */
+.sx-card {
+  position: relative; display: flex; flex-direction: column; border-radius: 28px;
+  background:
+    radial-gradient(120% 70% at 50% -10%, rgba(255,255,255,.045), transparent 60%),
+    linear-gradient(180deg, rgba(18,25,38,.88), rgba(8,11,17,.92));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.07), inset 0 1px 0 rgba(255,255,255,.09), 0 40px 80px -40px rgba(0,0,0,.9);
+  overflow: hidden; isolation: isolate;
+  transition: box-shadow .5s var(--ease), transform .6s var(--ease);
+}
+.sx-card::before {
+  content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: conic-gradient(from var(--a), transparent 0 60%, var(--sx), var(--cyan), transparent 95%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity .5s; animation: rot 5s linear infinite;
+}
+.sx-card::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .6s var(--ease);
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--sx) 18%, transparent), transparent 70%);
+}
+.sx-card:hover::before { opacity: .85; }
+.sx-card:hover::after { opacity: 1; }
+
+/* Switch no canto superior direito */
+.sx-sw {
+  position: absolute; z-index: 4; top: 18px; right: 18px; width: 30px; height: 18px; padding: 0; border: 0; border-radius: 99px; cursor: pointer;
+  background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.1); transition: background .5s var(--ease), box-shadow .5s var(--ease); opacity: 0;
+}
+.sx-sw i {
+  position: absolute; top: 3px; left: 3px; width: 12px; height: 12px; border-radius: 50%; background: #94a3b8;
+  box-shadow: 0 1px 3px rgba(0,0,0,.5); transition: transform .5s var(--ease), background .5s;
+}
+.sx-ready .sx-sw { opacity: 1; }
+.sx-card.sx-live:not(.sx-off) .sx-sw {
+  background: color-mix(in srgb, var(--sx) 55%, #080c14);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sx) 55%, transparent), 0 0 18px -6px color-mix(in srgb, var(--sx) 55%, transparent);
+}
+.sx-card.sx-live:not(.sx-off) .sx-sw i { transform: translateX(12px); background: #fff; }
+.sx-sw:focus-visible { outline: 2px solid var(--sx); outline-offset: 3px; }
+
+/* Palco visual SVG */
+.sx-vis { position: relative; height: 280px; overflow: hidden; }
+.sx-stage { position: absolute; inset: 0; padding: 24px 18px 4px; }
+.sx-tilt { width: 100%; height: 100%; transform: perspective(1200px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); will-change: transform; }
+.sx-svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.sx-svg * { vector-effect: non-scaling-stroke; }
+
+.sx-ready .sx-stage { opacity: .4; filter: saturate(0); transition: opacity 1.2s var(--ease), filter 1.2s var(--ease); }
+.sx-ready .sx-card.sx-live .sx-stage { opacity: 1; filter: none; }
+.sx-ready .sx-card.sx-off .sx-stage { opacity: .3; filter: saturate(0); }
+
+/* Textos do card */
+.card-txt { padding: 8px 28px 28px; margin-top: auto; }
+.sx-card h3 { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 19px; letter-spacing: -.02em; }
+.sx-card h3 svg { color: var(--muted); transition: color .4s ease; width: 20px; height: 20px; }
+.sx-card:hover h3 svg { color: var(--sx); }
+.sx-card p { margin-top: 8px; color: var(--muted); font-size: 14.5px; line-height: 1.5; }
+
+/* Detalhes SVG */
+.sx-wire { fill: none; stroke-width: 1.5; }
+.sx-wire-base { stroke: rgba(255,255,255,.1); stroke-dasharray: 4 6; }
+.sx-wire-flow { stroke: var(--sx); stroke-dasharray: 30 200; stroke-linecap: round; animation: dash 2.2s linear infinite; filter: drop-shadow(0 0 6px var(--sx)); }
+.sx-box { fill: #0d131f; stroke: rgba(255,255,255,.12); stroke-width: 1; rx: 8px; }
+.sx-box-on { fill: #131d2e; stroke: var(--sx); stroke-width: 1.2; rx: 8px; }
+.sx-txt-mono { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+.sx-txt-bold { font-family: var(--ui); font-size: 12.5px; font-weight: 500; fill: var(--text); }
+.sx-badge { fill: var(--sx); opacity: 0.18; rx: 99px; }
+.sx-badge-txt { font-family: var(--mono); font-size: 10.5px; font-weight: 600; fill: var(--sx); }
+
+@keyframes dash { to { stroke-dashoffset: -230; } }
+
+@media (max-width: 980px) {
+  .bento { grid-template-columns: 1fr 1fr; }
+  .span-2, .span-3 { grid-column: span 1; }
+  .span-4 { grid-column: span 2; }
+}
+@media (max-width: 720px) {
+  .bento { grid-template-columns: 1fr; }
+  .span-2, .span-3, .span-4 { grid-column: auto; }
+  .sx-vis { height: auto; min-height: 220px; }
+  .sx-stage { position: relative; inset: auto; padding: 40px 10px 4px; }
+  .sx-tilt { height: auto; transform: none; }
+  .card-txt { padding: 4px 20px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sx-sw { display: none; }
+  .sx-ready .sx-stage, .sx-ready .sx-card.sx-off .sx-stage { opacity: 1; filter: none; }
+  .sx-tilt { transform: none; }
+  .sx-card::before { animation: none; }
+}
